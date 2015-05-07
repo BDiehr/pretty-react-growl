@@ -79,9 +79,8 @@ var SingleGrowl = React.createClass({
     if(this.state.remove) {
       cname = cname + " removing";
     }
-    return (<li className={cname}><span><i className="warning-notification fa fa-warning fa-lg"></i> &#160;{this.props.notification.msg}</span></li>);
+    return (React.createElement("li", {className: cname}, React.createElement("span", null, React.createElement("i", {className: "warning-notification fa fa-warning fa-lg"}), "  ", this.props.notification.msg)));
   }
-
 });
 
 /* From Modernizr */
@@ -93,7 +92,7 @@ function whichTransitionEvent(){
     'OTransition':'oTransitionEnd',
     'MozTransition':'transitionend',
     'WebkitTransition':'webkitTransitionEnd'
-  }
+  };
 
   for(t in transitions){
     if( el.style[t] !== undefined ){

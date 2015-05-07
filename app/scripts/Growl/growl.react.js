@@ -128,29 +128,29 @@ var Growl = React.createClass({
     var that = this;
 
     if(this.state.notifications.length == 0 ) {
-      return <div className="growl-wrapper empty"></div>;
+      return React.createElement("div", {className: "growl-wrapper empty"});
     }
     var isMore = "";
     var count = 0;
     if(this.state.notifications.length > maxShown) {
       var amt = this.state.notifications.length - maxShown;
-      isMore = <li key="more-still"><span>{amt} more</span></li>
+      isMore = React.createElement("li", {key: "more-still"}, React.createElement("span", null, amt, " more"));
     }
 
     return (
-      <div className="growl-wrapper">
-        <ul>
-          {this.state.notifications.map(function(n) {
+      React.createElement("div", {className: "growl-wrapper"},
+        React.createElement("ul", null,
+          this.state.notifications.map(function(n) {
             count += 1;
             if(count >= maxShown) {
               return "";
             } else {
-              return <SingleGrowl key={n.uid} ref={n.ref} notification={n} onDidRemove={that.handleRemovedNotification} />
+              return React.createElement(SingleGrowl, {key: n.uid, ref: n.ref, notification: n, onDidRemove: that.handleRemovedNotification})
             }
-          })}
-          {isMore}
-        </ul>
-      </div>
+          }),
+          isMore
+        )
+      )
     );
 
   }
