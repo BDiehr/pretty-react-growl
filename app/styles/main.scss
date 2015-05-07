@@ -1,0 +1,48 @@
+// bower:scss
+// endbower
+
+.hero-unit {
+  margin: 50px auto 0 auto;
+  width: 300px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 60px;
+  h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+}
+
+.growl-wrapper {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  &.empty { display: none; }
+  ul {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      position: relative;
+      > span {
+        transition: all 2s ease;
+        display: block;
+        background: rgba(0, 0, 0, 0.7);
+        color: #FFF;
+        padding: .5em;
+        right: 0;
+      }
+      &.removing > span {
+        opacity: 0;
+        right: -20%;
+      }
+    }
+  }
+}
